@@ -7,8 +7,7 @@ PNG_IMAGES = []
 SVG_IMAGES = []
 MP4_VIDEO = []
 AVI_VIDEO = []
-MOV_VIDEO = []
-MKV_VIEO = []
+MKV_VIDEO = []
 DOC_DOCS = []
 DOCX_DOCS = []
 PDF_DOCS = []
@@ -25,7 +24,7 @@ REGISTER_EXTENSION = {
     "SVG": SVG_IMAGES,
     "MP4": MP4_VIDEO,
     "AVI": AVI_VIDEO,
-    "MKV": MOV_VIDEO,
+    "MKV": MKV_VIDEO,
     "DOC": DOC_DOCS,
     "DOCX": DOCX_DOCS,
     "PDF": PDF_DOCS,
@@ -46,7 +45,7 @@ def get_extension(filename: str) -> str:
 def scan(folder: Path) -> None:
     for item in folder.iterdir():
         if item.is_dir():
-            if item.name not in ('archives', 'video', 'audio', 'documents', 'images', 'MY_OTHER'):
+            if item.name not in ('archives', 'video', 'audio', 'documents', 'images', 'MY_OTHERS'):
                 FOLDERS.append(item)
                 scan(item)
 
@@ -76,7 +75,7 @@ if __name__ == "__main__":
     print(f'Images svg: {SVG_IMAGES}')
     print(f'Video mp4: {MP4_VIDEO}')
     print(f'Video avi: {AVI_VIDEO}')
-    print(f'Video mkv: {MKV_VIEO}')
+    print(f'Video mkv: {MKV_VIDEO}')
     print(f'Docs doc: {DOC_DOCS}')
     print(f'Docs docx: {DOCX_DOCS}')
     print(f'Docs pdf: {PDF_DOCS}')
