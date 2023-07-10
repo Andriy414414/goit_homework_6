@@ -34,15 +34,14 @@ REGISTER_EXTENSION = {
 }
 
 FOLDERS = []
-EXTENSION = set()
-UNKNOWN = set()
-
 
 def get_extension(filename: str) -> str:
     return Path(filename).suffix[1:].upper()
 
 
 def scan(folder: Path) -> None:
+    EXTENSION = set()
+    UNKNOWN = set()
     for item in folder.iterdir():
         if item.is_dir():
             if item.name not in ('archives', 'video', 'audio', 'documents', 'images', 'MY_OTHERS'):
@@ -82,6 +81,7 @@ if __name__ == "__main__":
     print(f'Audio mp3:{MP3_AUDIO}')
     print(f'Audio ogg:{OGG_AUDIO}')
     print(f'Archives: {ARCHIVES}')
+    print("*", * 25)
     print(f'Types of files in folder: {EXTENSION}')
     print(f'Unknown files of types: {UNKNOWN}')
     print(f'MY_OTHER: {MY_OTHERS}')

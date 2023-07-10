@@ -1,7 +1,7 @@
 from pathlib import Path
 import shutil
 import sys
-import parser as parser
+import parser_2 as parser_2
 from normalize import normalize
 
 def handle_media(filename: Path, target_folder: Path) -> None:
@@ -35,37 +35,37 @@ def handle_folder(folder: Path):
         print(f"Can't delete folder: {folder}")
 
 def main(folder: Path):
-    parser.scan(folder)
-    for file in parser.JPEG_IMAGES:
+    parser_2.scan(folder)
+    for file in parser_2.JPEG_IMAGES:
         handle_media(file, folder / 'images' / 'JPEG')
-    for file in parser.JPG_IMAGES:
+    for file in parser_2.JPG_IMAGES:
         handle_media(file, folder / 'images' / 'JPG')
-    for file in parser.PNG_IMAGES:
+    for file in parser_2.PNG_IMAGES:
         handle_media(file, folder / 'images' / 'PNG')
-    for file in parser.SVG_IMAGES:
+    for file in parser_2.SVG_IMAGES:
         handle_media(file, folder / 'images' / 'SVG')
-    for file in parser.MP4_VIDEO:
+    for file in parser_2.MP4_VIDEO:
         handle_media(file, folder / 'video' / 'MP4')
-    for file in parser.AVI_VIDEO:
+    for file in parser_2.AVI_VIDEO:
         handle_media(file, folder / 'video' / 'AVI')
-    for file in parser.MKV_VIDEO:
+    for file in parser_2.MKV_VIDEO:
         handle_media(file, folder / 'video' / 'MKV')
-    for file in parser.DOC_DOCS:
+    for file in parser_2.DOC_DOCS:
         handle_docs(file, folder / 'docs' / 'DOC')
-    for file in parser.DOCX_DOCS:
+    for file in parser_2.DOCX_DOCS:
         handle_docs(file, folder / 'docs' / 'DOCX')
-    for file in parser.PDF_DOCS:
+    for file in parser_2.PDF_DOCS:
         handle_docs(file, folder / 'docs' / 'PDF')
-    for file in parser.OGG_AUDIO:
+    for file in parser_2.OGG_AUDIO:
         handle_media(file, folder / 'audio' / 'OGG')
-    for file in parser.MP3_AUDIO:
+    for file in parser_2.MP3_AUDIO:
         handle_media(file, folder / 'audio' / 'MP3')
-    for file in parser.MY_OTHERS:
+    for file in parser_2.MY_OTHERS:
         handle_media(file, folder / 'MY_OTHERS')
-    for file in parser.ARCHIVES:
+    for file in parser_2.ARCHIVES:
         handle_media(file, folder / 'ARCHIVES')
 
-    for folder in parser.FOLDERS[::-1]:
+    for folder in parser_2.FOLDERS[::-1]:
         handle_folder(folder)
 
 if __name__ == "__main__":
