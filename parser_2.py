@@ -34,14 +34,16 @@ REGISTER_EXTENSION = {
 }
 
 FOLDERS = []
+EXTENSION = set()
+UNKNOWN = set()
 
 def get_extension(filename: str) -> str:
     return Path(filename).suffix[1:].upper()
 
 
 def scan(folder: Path) -> None:
-    EXTENSION = set()
-    UNKNOWN = set()
+    # EXTENSION = set()
+    # UNKNOWN = set()
     for item in folder.iterdir():
         if item.is_dir():
             if item.name not in ('archives', 'video', 'audio', 'documents', 'images', 'MY_OTHERS'):

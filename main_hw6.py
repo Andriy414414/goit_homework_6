@@ -51,11 +51,11 @@ def main(folder: Path):
     for file in parser_2.MKV_VIDEO:
         handle_media(file, folder / 'video' / 'MKV')
     for file in parser_2.DOC_DOCS:
-        handle_docs(file, folder / 'docs' / 'DOC')
+        handle_docs(file, folder / 'documents' / 'DOC')
     for file in parser_2.DOCX_DOCS:
-        handle_docs(file, folder / 'docs' / 'DOCX')
+        handle_docs(file, folder / 'documents' / 'DOCX')
     for file in parser_2.PDF_DOCS:
-        handle_docs(file, folder / 'docs' / 'PDF')
+        handle_docs(file, folder / 'documents' / 'PDF')
     for file in parser_2.OGG_AUDIO:
         handle_media(file, folder / 'audio' / 'OGG')
     for file in parser_2.MP3_AUDIO:
