@@ -48,7 +48,7 @@ for c, l in zip(CYR_SYM, TRANS_L):
 
 def normalize(name: str) -> str:
     t_name = name.translate(TRANS)
-    t_name = re.sub(r'\W', "_", t_name)
+    t_name = re.sub(r'(?![.])\W', "_", t_name)
     return t_name
     
      
