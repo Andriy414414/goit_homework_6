@@ -8,10 +8,6 @@ def handle_media(filename: Path, target_folder: Path) -> None:
     target_folder.mkdir(exist_ok=True, parents=True)
     filename.replace(target_folder / normalize(filename.name))
 
-def handle_docs(filename: Path, target_folder: Path) -> None:
-    target_folder.mkdir(exist_ok=True, parents=True)
-    filename.replace(target_folder / normalize(filename.name))
-
 def handle_other(filename: Path, target_folder: Path) -> None:
     target_folder.mkdir(exist_ok=True, parents=True)
     filename.replace(target_folder / normalize(filename.name)) 
@@ -51,19 +47,19 @@ def main(folder: Path):
     for file in parser_2.MKV_VIDEO:
         handle_media(file, folder / 'video' / 'MKV')
     for file in parser_2.DOC_DOCS:
-        handle_docs(file, folder / 'documents' / 'DOC')
+        handle_media(file, folder / 'documents' / 'DOC')
     for file in parser_2.DOCX_DOCS:
-        handle_docs(file, folder / 'documents' / 'DOCX')
+        handle_media(file, folder / 'documents' / 'DOCX')
     for file in parser_2.PDF_DOCS:
-        handle_docs(file, folder / 'documents' / 'PDF')
+        handle_media(file, folder / 'documents' / 'PDF')
     for file in parser_2.OGG_AUDIO:
         handle_media(file, folder / 'audio' / 'OGG')
     for file in parser_2.MP3_AUDIO:
         handle_media(file, folder / 'audio' / 'MP3')
     for file in parser_2.MY_OTHERS:
-        handle_media(file, folder / 'MY_OTHERS')
+        handle_media(file, folder)
     for file in parser_2.ARCHIVES:
-        handle_media(file, folder / 'ARCHIVES')
+        handle_archive(file, folder / 'archives')
 
     for folder in parser_2.FOLDERS[::-1]:
         handle_folder(folder)
