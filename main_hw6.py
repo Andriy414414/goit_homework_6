@@ -12,17 +12,29 @@ def handle_other(filename: Path, target_folder: Path) -> None:
     target_folder.mkdir(exist_ok=True, parents=True)
     filename.replace(target_folder / normalize(filename.name)) 
 
+# def handle_archive(filename: Path, target_folder: Path) -> None:
+#     target_folder.mkdir(exist_ok=True, parents=True)
+#     filename.replace(target_folder / normalize(filename.name))
+#     folder_for_file = target_folder / normalize(filename.name.replace(filename.suffix, ''))
+#     folder_for_file.mkdir(exist_ok=True, parents=True)
+#     try:
+#         shutil.unpack_archive(filename, folder_for_file)
+#     except shutil.ReadError:
+#         print("It is not archive")
+#         folder_for_file.rmdir()
+#     filename.unlink()
+
 def handle_archive(filename: Path, target_folder: Path) -> None:
     target_folder.mkdir(exist_ok=True, parents=True)
-    filename.replace(target_folder / normalize(filename.name))
-    folder_for_file = target_folder / normalize(filename.name.replace(filename.suffix, ''))
+    filename = filename.replace(target_folder / normalize(filename.name))
+    folder_for_file = target_folder / filename.stem
     folder_for_file.mkdir(exist_ok=True, parents=True)
     try:
         shutil.unpack_archive(filename, folder_for_file)
+        filename.unlink()
     except shutil.ReadError:
         print("It is not archive")
         folder_for_file.rmdir()
-    filename.unlink()
 
 def handle_folder(folder: Path):
     try:

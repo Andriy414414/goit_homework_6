@@ -42,8 +42,7 @@ def get_extension(filename: str) -> str:
 
 
 def scan(folder: Path) -> None:
-    # EXTENSION = set()
-    # UNKNOWN = set()
+    
     for item in folder.iterdir():
         if item.is_dir():
             if item.name not in ('archives', 'video', 'audio', 'documents', 'images', 'MY_OTHERS'):
@@ -70,25 +69,7 @@ if __name__ == "__main__":
     folder_to_scan = sys.argv[1]
     print(f"Start in folder {folder_to_scan}")
     scan(Path(folder_to_scan))
-    print(f'Images jpeg: {JPEG_IMAGES}')
-    print(f'Images jpg: {JPG_IMAGES}')
-    print(f'Images png: {PNG_IMAGES}')
-    print(f'Images svg: {SVG_IMAGES}')
-    print(f'Video mp4: {MP4_VIDEO}')
-    print(f'Video avi: {AVI_VIDEO}')
-    print(f'Video mkv: {MKV_VIDEO}')
-    print(f'Docs doc: {DOC_DOCS}')
-    print(f'Docs docx: {DOCX_DOCS}')
-    print(f'Docs pdf: {PDF_DOCS}')
-    print(f'Audio mp3:{MP3_AUDIO}')
-    print(f'Audio ogg:{OGG_AUDIO}')
-    print(f'Archives: {ARCHIVES}')
-    
-    print(f'Types of files in folder: {EXTENSION}')
-    print(f'Unknown files of types: {UNKNOWN}')
-    print(f'MY_OTHER: {MY_OTHERS}')
-
-    print(FOLDERS)
+   
 
 
 
